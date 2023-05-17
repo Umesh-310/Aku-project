@@ -6,6 +6,7 @@ import style from "./attendance.module.css";
 const AddAttendance = () => {
   const userId = localStorage.getItem("userId");
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
+  const [day, setDay] = useState("");
 
   const handleCheckIn = async () => {
     try {
@@ -67,16 +68,25 @@ const AddAttendance = () => {
 
     return `${day}/${month}/${year} ${hours}:${minutes}`;
   };
-
+  useEffect(() => {
+    const date = new Date();
+    const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const dayOfWeekString = daysOfWeek[date.getDay()];
+    if (dayOfWeekString === "Sun") {
+      setDay("dissable");
+    } else {
+      setDay("button");
+    }
+  }, []);
   return (
     <div>
       <h2 className={style.time}>Add Attendance</h2>
       <h2 className={style.time}>{formattedDateTime()}</h2>
       <div className={style.div}>
-        <button onClick={handleCheckIn} className={style.button}>
+        <button disabled={day} onClick={handleCheckIn} className={style[day]}>
           checkIn
         </button>
-        <button onClick={handleCheckOut} className={style.button}>
+        <button disabled={day} onClick={handleCheckOut} className={style[day]}>
           checkout
         </button>
       </div>

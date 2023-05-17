@@ -23,3 +23,13 @@
   padding: 10px;
   text-align: center;
 }
+.dissable {
+  color: #0002;
+  background: none;
+  padding: 50px;
+  margin: 2px 20px;
+  border: 2px solid #0002;
+  border-radius: 10px;
+  float: right;
+  cursor: pointer;
+}
