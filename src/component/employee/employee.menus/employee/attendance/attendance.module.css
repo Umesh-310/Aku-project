@@ -1,0 +1,25 @@
+.div {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.button {
+  color: #228be6;
+  background: none;
+  padding: 50px;
+  margin: 2px 20px;
+  border: 2px solid #228be6;
+  border-radius: 10px;
+  float: right;
+  cursor: pointer;
+}
+.button:hover {
+  color: #fff;
+  background: #228be6;
+  transform: scaleX(100px);
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.time {
+  padding: 10px;
+  text-align: center;
+}
